@@ -1,0 +1,78 @@
+<!--pages/index/index.wxml-->
+<view class="banner">
+    <swiper class="swip_main" indicator-dots autoplay interval="3000" circular>
+        <block wx:for="{{mglist}}">
+            <swiper-item >
+                <image style="width: 100%;height: 100%;" mode="scaleToFill" src="{{item.photo}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<view class="tz">
+    <view class="tz_zp">
+    <image src="../../images/font-ui/zggg.png"></image>
+    </view>
+    <swiper class="swiper-news-top" vertical="true" autoplay="true" circular="true" interval="3000">
+        <block wx:for="{{msgList}}" >
+            <navigator url="" open-type="navigate">
+                <swiper-item>
+                    <view class="swiper_item" >{{item.text}}</view>
+                </swiper-item>
+            </navigator>
+        </block>
+    </swiper>
+</view>
+<view class="nav">
+    <view class="nav-banner" id='1'  bindtap='showwd'>
+        <view class="nav-banner-img">
+            <image src="../../images/font-ui/bigmosque.png"></image>
+        </view>
+        <view class="nav-banner-text" >湖畔餐厅</view>
+    </view>
+    <view class="nav-banner" id='2'bindtap='showwd'>
+        <view class="nav-banner-img">
+            <image src="../../images/font-ui/bigschool.png"></image>
+        </view>
+        <view class="nav-banner-text">日新楼</view>
+    </view>
+    <view class="nav-banner" bindtap='showwd'>
+        <view class="nav-banner-img">
+            <image src="../../images/font-ui/moderncity.png"></image>
+        </view>
+        <view class="nav-banner-text">莘子园</view>
+    </view>
+    <view class="nav-banner"bindtap='showwd' id='3'>
+        <view class="nav-banner-img">
+            <image src="../../images/font-ui/store.png"></image>
+        </view>
+        <view class="nav-banner-text">翔远餐厅</view>
+    </view>
+    <view class="nav-banner"  bindtap='showwd'>
+        <view class="nav-banner-img">
+            <image src="../../images/font-ui/temple.png"></image>
+        </view>
+        <view class="nav-banner-text">鸿鹄餐厅</view>
+    </view>
+</view>
+<view class="rmbs">
+    <view class="rmbs-title">
+        <view class="rmbs-title-text">热门美食</view>
+        <view class="rmbs-title-more" bindtap='showlist'>查看更多 ></view>
+    </view>
+    <view class="rmbs-list" wx:for="{{rmbs}}" wx:for-item="item" wx:key="_id"  bindtap='showbs' id="{{item._id}}" wx:if="{{index<10}}">
+        <view class="rmbs-list-photo">
+            <image src="{{item.src}}"></image>
+        </view>
+        <view class="rmbs-list-text">
+            <view class="rmbs-list-text-tit1">{{item.name}}</view>
+            <view class="rmbs-list-text-jj">{{item.jj}}</view>
+            <view class="rmbs-list-text-tit2">地址：{{item.zd}}</view>
+            <view class="rmbs-list-text-tit3">
+                <view class="rmbs-list-text-btn" style="background-color: rgb(26, 69, 134);" wx:if="{{item.btn1!=''}}">{{item.btn1}}</view>
+                <view class="rmbs-list-text-btn" style="background-color: rgb(24, 122, 29);" wx:if="{{item.btn2!=''}}">{{item.btn2}}</view>
+                <view class="rmbs-list-text-btn" style="background-color: coral;"wx:if="{{item.btn3!=''}}">{{item.btn3}}</view>
+                <view class="rmbs-list-text-btn" wx:if="{{item.btn4!=''}}">{{item.btn4}}</view>
+            </view>
+        </view>
+    </view>
+</view>
